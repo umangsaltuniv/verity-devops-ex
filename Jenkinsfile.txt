@@ -4,10 +4,7 @@ pipeline {
 		
 		
 		// *******ALL CODE TO BE ADDED BELOW THIS COMMENT******
-		
-pipeline {
-    agent any
-    stages {		
+			
 			
 	//Code starts for stage Clean
         stage('Clean') {
