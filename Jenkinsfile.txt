@@ -13,10 +13,7 @@ pipeline {
             }
         }
 		//Code ends for stage Clean
-
-}
-}
-                  //Code starts for stage Compile
+	                  //Code starts for stage Compile
 		stage('Compile') {
             steps {
                 sh 'mvn compile'
@@ -26,3 +23,5 @@ pipeline {
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     
+}
+}
