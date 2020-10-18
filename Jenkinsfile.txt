@@ -17,7 +17,8 @@ pipeline {
         }
 		//Code ends for stage Clean
 
-
+}
+}
                   //Code starts for stage Compile
 		stage('Compile') {
             steps {
