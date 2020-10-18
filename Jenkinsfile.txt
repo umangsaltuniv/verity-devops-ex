@@ -13,13 +13,22 @@ pipeline {
             }
         }
 		//Code ends for stage Clean
-	                  //Code starts for stage Compile
+	                
+		  //Code starts for stage Compile
 		stage('Compile') {
             steps {
                 sh 'mvn compile'
             }
         }
 		//Code Ends for stage Compile
+                 
+          	//Code starts for stage Install
+		stage('Install') {
+            steps {
+                sh 'mvn install -DskipTests'
+            }
+        }
+		//Code ends for stage Install
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     
