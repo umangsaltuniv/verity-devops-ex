@@ -51,7 +51,7 @@ public class UserServiceTest {
 		User user = new User();
 		user.setUsername("SUN");
 		
-		when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
+		Mockito.lenient().when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
 		User created = userService.saveUser(user);
 		
 		assertThat(created.getUsername(), is("SUN"));	
@@ -63,8 +63,8 @@ public class UserServiceTest {
 		User user = new User();
 		user.setUsername("SUN");
 		user.setPassword("123");
-		when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
-		when(passwordEncoder.encode(Mockito.any(String.class))).thenReturn("123");
+		Mockito.lenient().when(userRepository.save(Mockito.any(User.class))).thenReturn(user);
+		Mockito.lenient().when(passwordEncoder.encode(Mockito.any(String.class))).thenReturn("123");
 		User created = userService.saveUser(user);
 
 		List<User> userList = new ArrayList<User>();
