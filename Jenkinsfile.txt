@@ -41,19 +41,6 @@ pipeline {
         }
 		//Code ends for stage Unit Test
 
-//Code starts for stage SonarQube
-		stage('Static Code Analysis') {
-            steps {
-			 script {
-           scannerHome = tool 'sonar-scanner'
-        }
-				withSonarQubeEnv('My SonarQube Server')
-				{
-				sh "${scannerHome}/bin/sonar-scanner"
-				}
-			}
-		}
-		//Code ends for stage SonarQube
 	
 
 //Code starts for stage JaCoCo
