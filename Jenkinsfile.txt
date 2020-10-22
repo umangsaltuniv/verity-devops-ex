@@ -28,6 +28,21 @@ pipeline {
             }
         }
 //Code Ends for stage Compile
+
+//Code starts for stage SonarQube
+		stage('Static Code Analysis') {
+            steps {
+			 script {
+          scannerHome = tool 'sonar-scanner'
+        }
+				withSonarQubeEnv('My SonarQube Server')
+				{
+				sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+		//Code ends for stage SonarQube
+	
 //Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
