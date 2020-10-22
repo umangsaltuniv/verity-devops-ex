@@ -19,7 +19,7 @@ pipeline {
                 sh 'mvn site'
             }
         }
-//Code ends for stage PMD
+//Code ends for stage PMD */
 
 //Code starts for stage Compile
 		stage('Compile') {
@@ -29,8 +29,23 @@ pipeline {
         }
 //Code Ends for stage Compile
 
+//Code starts for stage SonarQube
+		stage('Static Code Analysis') {
+            steps {
+			 script {
+          scannerHome = tool 'sonar-scanner'
+        }
+				withSonarQubeEnv('My SonarQube Server')
+				{
+				sh "${scannerHome}/bin/sonar-scanner"
+				}
+			}
+		}
+		//Code ends for stage SonarQube
 	
-//Code starts for stage Unit Test
+
+	
+/*//Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
                 sh 'mvn test'
@@ -51,7 +66,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-//Code ends for stage JaCoCo*/
+//Code ends for stage JaCoCo
 	
 	
 //Code starts for stage Install
@@ -98,7 +113,7 @@ pipeline {
 				git url: 'https://github.com/ayushijain14/EMSystemTests_BDD.git'
             	sh 'mvn -Dtest=TestRunner test'
             }
-        }
+        }*/
 		//Code ends for stage BDD Test	
 		
 	
