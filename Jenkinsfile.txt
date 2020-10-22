@@ -13,7 +13,7 @@ pipeline {
         }
 //Code ends for stage Clean
 
-//Code starts for stage PMD
+/*//Code starts for stage PMD
 		stage('PMD') {
             steps {
                 sh 'mvn site'
@@ -51,7 +51,7 @@ pipeline {
                 sh 'mvn jacoco:report'
             }
         }
-//Code ends for stage JaCoCo
+//Code ends for stage JaCoCo*/
 	
 	
 //Code starts for stage Install
@@ -75,7 +75,7 @@ pipeline {
 		//Code starts for stage Deploy War on Tomcat Server
 		stage('Deploy War on Tomcat Server') {
             steps {
-                sh 'cp /var/jenkins_home/workspace/verity-devops/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.20/webapps'
+                sh 'cp /var/jenkins_home/workspace/verity-devops-ex/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.20/webapps'
             }
         }
 		//Code ends for stage Deploy War on Tomcat Server
