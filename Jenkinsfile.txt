@@ -13,13 +13,13 @@ pipeline {
         }
 //Code ends for stage Clean
 
-/*//Code starts for stage PMD
+//Code starts for stage PMD
 		stage('PMD') {
             steps {
                 sh 'mvn site'
             }
         }
-//Code ends for stage PMD */
+//Code ends for stage PMD 
 
 //Code starts for stage Compile
 		stage('Compile') {
@@ -45,7 +45,7 @@ pipeline {
 	
 
 	
-/*//Code starts for stage Unit Test
+//Code starts for stage Unit Test
         stage('Unit Test') {
             steps {
                 sh 'mvn test'
@@ -113,7 +113,7 @@ pipeline {
 				git url: 'https://github.com/ayushijain14/EMSystemTests_BDD.git'
             	sh 'mvn -Dtest=TestRunner test'
             }
-        }*/
+        }
 		//Code ends for stage BDD Test	
 		
 	
