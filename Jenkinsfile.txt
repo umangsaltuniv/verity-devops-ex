@@ -7,7 +7,16 @@ pipeline {
 	                 }
 		}
 		// ******ALL CODE TO BE ADDED BELOW THIS COMMENT******
-		
+		stage('PDM){
+  step{
+	sh 'mvn pmd:pmd'
+   }
+  post {
+   always{
+     recordIssues enabledForFailure: true, tool: pmdParser(pattern: '**/target/pmd.xml')   
+     }
+  }
+}
 	
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
